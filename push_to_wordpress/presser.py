@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from __future__ import print_function
-from ConfigParser import SafeConfigParser
-from ConfigParser import NoSectionError, NoOptionError
+
+from configparser import SafeConfigParser
+from configparser import NoSectionError, NoOptionError
 from markdown import markdown
 import os, sys
 from wordpress_xmlrpc import WordPressPost, Client
@@ -43,8 +43,8 @@ def presser():
         print (e.message)
         print("missing configuration information or file, please input them now:")
         import getpass
-        siteurl = '%s/%s' % (raw_input("Full site url: "),"xmlrpc.php")
-        username = raw_input("Wordpress site username: ")
+        siteurl = '%s/%s' % (input("Full site url: "),"xmlrpc.php")
+        username = input("Wordpress site username: ")
         password = getpass.getpass("Enter wordpress site password: ")
     
     #very basic, checking for http:// in the beginning, since this fails wordpress_xmprpc
